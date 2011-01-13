@@ -1,0 +1,19 @@
+Gem Name: Easystats
+Gem Author: Matthew Grigajtis (http://www.matthewgrigajtis.com)
+Description: Provides easy to use statistical function 
+
+Example usage:
+
+require "rubygems"
+require "easystats"
+
+# Create a test array of numbers
+myNumbers = Array.new
+myNumbers = [4, 8, 15, 16, 23, 42]
+
+# Create a new Easystats Object
+m = Easystats.new
+
+puts "Average: " + m.mean(myNumbers).to_s
+puts "Standard Deviation: " + m.standard_deviation(myNumbers).to_s
+
