@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Matthew Grigajtis"]
   s.email       = ["matthew@grigajtis.org"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/mgrigajtis/easystats"
   s.summary     = %q{Easy to use statistics functions}
   s.description = %q{This gem contains statistics functions that are easy to use.}
 

@@ -1,6 +1,27 @@
 Gem Name: Easystats
 Gem Author: Matthew Grigajtis (http://www.matthewgrigajtis.com)
-Description: Provides easy to use statistical function 
+Description: Provides easy to use statistical functions 
+
+Functions Provided:
+sum(x)
+Parameters: Takes in an array of numbers
+Returns: The sum of the numbers in the array
+
+mean(x)
+Parameters: Takes in an array of numbers
+Returns: The mean (average) of the numbers in the array
+
+standard_deviation(x)
+Parameters: Takes in an array of numbers
+Returns: The standard deviation of the numbers in the array
+
+median(x)
+Paramaters: Takes in an array of numbers
+Returns: The median of the numbers in the array
+
+range(x)
+Parameters: Takes in an array of numbers
+Returns: The range of the numbers
 
 Example usage:
 
@@ -14,6 +35,8 @@ myNumbers = [4, 8, 15, 16, 23, 42]
 # Create a new Easystats Object
 m = Easystats.new
 
+puts "Sum: " + m.sum(myNumbers).to_s
 puts "Average: " + m.mean(myNumbers).to_s
 puts "Standard Deviation: " + m.standard_deviation(myNumbers).to_s
-
+puts "Median: " + m.median(myNumbers).to_s
+puts "Range: " + m.range(myNumbers).to_s
