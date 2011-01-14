@@ -1,34 +1,27 @@
 Gem Name: Easystats
 Gem Author: Matthew Grigajtis (http://www.matthewgrigajtis.com)
-Description: Provides easy to use statistical functions 
+Description: Provides easy to use statistical functions to use on an array 
 
 Functions Provided:
-sum(x)
-Parameters: Takes in an array of numbers
+sum
 Returns: The sum of the numbers in the array
 
-mean(x)
-Parameters: Takes in an array of numbers
+mean
 Returns: The mean (average) of the numbers in the array
 
-standard_deviation(x)
-Parameters: Takes in an array of numbers
+standard_deviation
 Returns: The standard deviation of the numbers in the array
 
-median(x)
-Paramaters: Takes in an array of numbers
+median
 Returns: The median of the numbers in the array
 
-range(x)
-Parameters: Takes in an array of numbers
+range
 Returns: The range of the numbers
 
-mode(x)
-Parameters: Takes in an array of numbers
+mode
 Returns: The mode, if any.  Otherwise a string that says "There is no mode"
 
-variance(x)
-Paramaters: Takes in an array of numbers
+variance
 Returns: The variance
 
 Example usage:
@@ -40,13 +33,10 @@ require "easystats"
 myNumbers = Array.new
 myNumbers = [4, 8, 15, 16, 23, 42]
 
-# Create a new Easystats Object
-m = Easystats.new
-
-puts "Sum: " + m.sum(myNumbers).to_s
-puts "Average: " + m.mean(myNumbers).to_s
-puts "Variance: " + m.variance(myNumbers).to_s
-puts "Standard Deviation: " + m.standard_deviation(myNumbers).to_s
-puts "Median: " + m.median(myNumbers).to_s
-puts "Range: " + m.range(myNumbers).to_s
-puts "Mode: " + m.mode(myNumbers).to_s
+puts "Range: " + myNumbers.range.to_s
+puts "Sum: " + myNumbers.sum.to_s
+puts "Average: " + myNumbers.mean.to_s
+puts "Median: " + myNumbers.median.to_s
+puts "Variance: " + myNumbers.variance.to_s
+puts "Standard Deviation: " + myNumbers.standard_deviation.to_s
+puts "Mode: " + myNumbers.mode.to_s
