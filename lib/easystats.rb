@@ -1,4 +1,4 @@
-  class Object
+  class Array
     # take in an array of numbers and calculate the sum
     def sum
       data = self
