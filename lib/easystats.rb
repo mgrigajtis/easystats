@@ -4,8 +4,13 @@
       data = self
       sum_of_numbers = 0
 
-      data.each do |num|
-        sum_of_numbers += num
+      # Get the total sum only if there are actually numbers to total
+      if data.count > 0
+        data.each do |num|
+          sum_of_numbers += num
+        end
+      else
+        sum_of_numbers = 0
       end
 
       sum_of_numbers
@@ -14,7 +19,13 @@
     # take in an array of numbers and calculate the mean (average)
     def mean
       data = self
-      self.sum / data.count.to_f
+
+      # Check to make sure there are numbers to avoid division by 0
+      if data.count > 0
+        self.sum / data.count.to_f
+      else
+        0
+      end
     end
 
     # this is an internat function (technically the developer can use it but should have no need)
@@ -24,32 +35,41 @@
 
       deviations = Array.new
       average = self.mean
-      sum_of_deviations = 0
+      sum_of_deviations_squared = 0
 
       data.each do |num|
         deviations.push((num-average)**2)
       end
 
       deviations.each do |num|
-        sum_of_deviations += num
+        sum_of_deviations_squared += num
       end
 
-      sum_of_deviations
+      sum_of_deviations_squared
     end
 
     # take in an array of numbers and calculate the standard deviation
     def standard_deviation
       data = self
-      sum_of_deviations = self.sum_of_deviations_squared
+      sum_of_deviations_squared = self.sum_of_deviations_squared
 
-      Math::sqrt(sum_of_deviations / (data.count-1))
+      if data.count > 1 
+        Math::sqrt(sum_of_deviations_squared / (data.count-1))
+      else
+        0
+      end
     end
 
     def variance
       data = self
       average = self.mean
       sum_of_deviations = self.sum_of_deviations_squared
-      sum_of_deviations / data.count.to_f
+ 
+      if data.count > 0
+        sum_of_deviations / data.count.to_f
+      else
+        0
+      end
     end
 
     # take in the array of numbers and calculate the median
@@ -117,7 +137,7 @@
       end
  
       if no_mode == true
-        "There is no mode"
+        0
       else
         data.each do |num|
           if tmp["#{num}"].to_i > most_times
@@ -136,7 +156,7 @@
         end
  
         if no_mode == true
-          "There is no mode"
+          0
         else
           highest_value
         end

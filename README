@@ -19,7 +19,7 @@ range
 Returns: The range of the numbers
 
 mode
-Returns: The mode, if any.  Otherwise a string that says "There is no mode"
+Returns: The mode.  If there is no mode returns 0.
 
 variance
 Returns: The variance
