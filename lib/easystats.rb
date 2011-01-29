@@ -1,4 +1,5 @@
   class Array
+
     # take in an array of numbers and calculate the sum
     def sum
       data = self
@@ -27,6 +28,7 @@
         0
       end
     end
+    alias_method :average, :mean
 
     # this is an internat function (technically the developer can use it but should have no need)
     # this function returns the sum of each squared difference of mean

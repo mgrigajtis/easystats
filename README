@@ -9,6 +9,9 @@ Returns: The sum of the numbers in the array
 mean
 Returns: The mean (average) of the numbers in the array
 
+average
+An alias of mean
+
 standard_deviation
 Returns: The standard deviation of the numbers in the array
 
