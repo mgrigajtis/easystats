@@ -15,7 +15,7 @@
       end
 
       sum_of_numbers
-    end
+    end unless Array.instance_methods.include? "sum"
 
     # take in an array of numbers and calculate the mean (average)
     def mean
