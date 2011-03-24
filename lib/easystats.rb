@@ -138,7 +138,7 @@
         end
  
         if no_mode == true
-          0
+          nil
         else
           highest_value
         end
