@@ -113,7 +113,7 @@
 
       # Check to make sure that there is a mode
       data.each do |num|
-        if tmp["#{num}"].to_i > 1
+        if tmp["#{num}"].to_i > 0
           no_mode = false
         end
       end

@@ -24,7 +24,7 @@ class EasystatsTest < Test::Unit::TestCase
   end
   
   def test_mode
-    assert_equal   0,       [1].mode, "1"
+    assert_equal   1,       [1].mode, "1"
     assert_equal nil,     [1,2].mode, "1,2"
     assert_equal nil,   [1,2,3].mode, "1,2,3"
     assert_equal nil, [1,2,3,4].mode, "1,2,3,4"
