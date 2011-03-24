@@ -65,4 +65,10 @@ class EasystatsTest < Test::Unit::TestCase
     assert_in_delta 1.29099444873581,  [1,2,3,4].standard_deviation, delta, "1,2,3,4"
   end
   
+  def test_should_not_be_able_to_access_protected_method_sum_of_deviations_squared
+    assert_raise(NoMethodError) do
+      [1].sum_of_deviations_squared
+    end
+  end
+  
 end

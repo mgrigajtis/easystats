@@ -30,26 +30,6 @@
     end unless Array.instance_methods.include? "mean"
     alias_method :average, :mean unless Array.instance_methods.include? "average"
 
-    # this is an internat function (technically the developer can use it but should have no need)
-    # this function returns the sum of each squared difference of mean
-    def sum_of_deviations_squared
-      data = self
-
-      deviations = Array.new
-      average = self.mean
-      sum_of_deviations_squared = 0
-
-      data.each do |num|
-        deviations.push((num-average)**2)
-      end
-
-      deviations.each do |num|
-        sum_of_deviations_squared += num
-      end
-
-      sum_of_deviations_squared
-    end
-
     # take in an array of numbers and calculate the standard deviation
     def standard_deviation
       data = self
@@ -164,5 +144,26 @@
         end
       end
     end unless Array.instance_methods.include? "mode"
+    
+    protected
+    
+    # this function returns the sum of each squared difference of mean
+    def sum_of_deviations_squared
+      data = self
+
+      deviations = Array.new
+      average = self.mean
+      sum_of_deviations_squared = 0
+
+      data.each do |num|
+        deviations.push((num-average)**2)
+      end
+
+      deviations.each do |num|
+        sum_of_deviations_squared += num
+      end
+
+      sum_of_deviations_squared
+    end
     
   end
