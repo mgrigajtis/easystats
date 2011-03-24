@@ -27,8 +27,8 @@
       else
         0
       end
-    end
-    alias_method :average, :mean
+    end unless Array.instance_methods.include? "mean"
+    alias_method :average, :mean unless Array.instance_methods.include? "average"
 
     # this is an internat function (technically the developer can use it but should have no need)
     # this function returns the sum of each squared difference of mean
@@ -60,7 +60,7 @@
       else
         0
       end
-    end
+    end unless Array.instance_methods.include? "standard_deviation"
 
     def variance
       data = self
@@ -72,7 +72,7 @@
       else
         0
       end
-    end
+    end unless Array.instance_methods.include? "variance"
 
     # take in the array of numbers and calculate the median
     def median
@@ -94,14 +94,14 @@
       end
 
       median
-    end
+    end unless Array.instance_methods.include? "median"
 
     # take in an array of numbers and calculate the range
     def range
       data = self
       data = data.sort
       data[data.count-1] - data[0]
-    end
+    end unless Array.instance_methods.include? "range"
 
     # take in an array of numbers and return the mode
     def mode
@@ -163,5 +163,6 @@
           highest_value
         end
       end
-    end
+    end unless Array.instance_methods.include? "mode"
+    
   end
