@@ -1,20 +1,22 @@
   class Array
 
     # take in an array of numbers and calculate the sum
-    def sum
-      data = self
-      sum_of_numbers = 0
-
-      # Get the total sum only if there are actually numbers to total
-      if data.count > 0
-        data.each do |num|
-          sum_of_numbers += num
-        end
-      else
+    unless method_defined? :sum
+      def sum
+        data = self
         sum_of_numbers = 0
-      end
 
-      sum_of_numbers
+        # Get the total sum only if there are actually numbers to total
+        if data.count > 0
+          data.each do |num|
+            sum_of_numbers += num
+          end
+        else
+          sum_of_numbers = 0
+        end
+
+        sum_of_numbers
+      end
     end
 
     # take in an array of numbers and calculate the mean (average)
