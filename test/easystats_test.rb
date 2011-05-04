@@ -24,12 +24,12 @@ class EasystatsTest < Test::Unit::TestCase
   end
   
   def test_mode
-    assert_equal 0,       [1].mode, "1" # TODO: should this be 1?
-    assert_equal 0,     [1,2].mode, "1,2" # TODO: should these return nil?
-    assert_equal 0,   [1,2,3].mode, "1,2,3" # "
-    assert_equal 0, [1,2,3,4].mode, "1,2,3,4" # "
-    assert_equal 2, [1,2,2,4].mode, "1,2,2,4"
-    assert_equal 3, [1,3,3,4].mode, "1,3,3,4"
+    assert_equal   1,       [1].mode, "1"
+    assert_equal nil,     [1,2].mode, "1,2"
+    assert_equal nil,   [1,2,3].mode, "1,2,3"
+    assert_equal nil, [1,2,3,4].mode, "1,2,3,4"
+    assert_equal   2, [1,2,2,4].mode, "1,2,2,4"
+    assert_equal   3, [1,3,3,4].mode, "1,3,3,4"
   end
   
   def test_range
@@ -63,6 +63,12 @@ class EasystatsTest < Test::Unit::TestCase
     assert_in_delta 0.707106781186548,     [1,2].standard_deviation, delta, "1,2"
     assert_in_delta 1,                   [1,2,3].standard_deviation, delta, "1,2,3"
     assert_in_delta 1.29099444873581,  [1,2,3,4].standard_deviation, delta, "1,2,3,4"
+  end
+  
+  def test_should_not_be_able_to_access_protected_method_sum_of_deviations_squared
+    assert_raise(NoMethodError) do
+      [1].sum_of_deviations_squared
+    end
   end
   
 end
