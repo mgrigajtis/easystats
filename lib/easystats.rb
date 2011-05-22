@@ -1,4 +1,4 @@
-  class Array
+class Array
 
     # take in an array of numbers and calculate the sum
     def sum
@@ -15,7 +15,7 @@
       end
 
       sum_of_numbers
-    end
+    end unless Array.instance_methods.include? "sum"
 
     # take in an array of numbers and calculate the mean (average)
     def mean
@@ -27,40 +27,20 @@
       else
         0
       end
-    end
-    alias_method :average, :mean
-
-    # this is an internat function (technically the developer can use it but should have no need)
-    # this function returns the sum of each squared difference of mean
-    def sum_of_deviations_squared
-      data = self
-
-      deviations = Array.new
-      average = self.mean
-      sum_of_deviations_squared = 0
-
-      data.each do |num|
-        deviations.push((num-average)**2)
-      end
-
-      deviations.each do |num|
-        sum_of_deviations_squared += num
-      end
-
-      sum_of_deviations_squared
-    end
+    end unless Array.instance_methods.include? "mean"
+    alias_method :average, :mean unless Array.instance_methods.include? "average"
 
     # take in an array of numbers and calculate the standard deviation
     def standard_deviation
       data = self
       sum_of_deviations_squared = self.sum_of_deviations_squared
 
-      if data.count > 1 
+      if data.count > 1
         Math::sqrt(sum_of_deviations_squared / (data.count-1))
       else
         0
       end
-    end
+    end unless Array.instance_methods.include? "standard_deviation"
 
     def variance
       data = self
@@ -72,7 +52,7 @@
       else
         0
       end
-    end
+    end unless Array.instance_methods.include? "variance"
 
     # take in the array of numbers and calculate the median
     def median
@@ -94,14 +74,14 @@
       end
 
       median
-    end
+    end unless Array.instance_methods.include? "median"
 
     # take in an array of numbers and calculate the range
     def range
       data = self
       data = data.sort
       data[data.count-1] - data[0]
-    end
+    end unless Array.instance_methods.include? "range"
 
     # take in an array of numbers and return the mode
     def mode
@@ -133,7 +113,7 @@
 
       # Check to make sure that there is a mode
       data.each do |num|
-        if tmp["#{num}"].to_i > 1
+        if tmp["#{num}"].to_i > 0
           no_mode = false
         end
       end
@@ -145,7 +125,7 @@
           if tmp["#{num}"].to_i > most_times
             highest_value = num
             most_times = tmp["#{num}"]
-          end 
+          end
         end
 
         # now loop through again just to make sure another number doesn't appear an equal number of times
@@ -158,10 +138,32 @@
         end
  
         if no_mode == true
-          0
+          nil
         else
           highest_value
         end
       end
+    end unless Array.instance_methods.include? "mode"
+    
+    protected
+    
+    # this function returns the sum of each squared difference of mean
+    def sum_of_deviations_squared
+      data = self
+
+      deviations = Array.new
+      average = self.mean
+      sum_of_deviations_squared = 0
+
+      data.each do |num|
+        deviations.push((num-average)**2)
+      end
+
+      deviations.each do |num|
+        sum_of_deviations_squared += num
+      end
+
+      sum_of_deviations_squared
     end
-  end
+    
+end

@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email       = ["matthew@grigajtis.org"]
   s.homepage    = "https://github.com/mgrigajtis/easystats"
   s.summary     = %q{Easy to use statistics functions}
-  s.description = %q{This gem contains statistics functions that are very easy to use.  The gem is still in its infancy, but it currently provides easy to use methods for sum, mean, standard deviation, median, range, mode, and variance.  More functions will be added as the gem matures, please feel free to fork on Github or send me bug reports!}
+  s.description = %q{This gem contains statistics functions that are very easy to use.  Much easier and much more complete than many of the other statistical gems available out there.  If you need a feature added, send me a message on Github!}
 
   s.rubyforge_project = "easystats"
 
