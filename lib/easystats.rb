@@ -166,8 +166,4 @@ class Array
       sum_of_deviations_squared
     end
     
-<<<<<<< HEAD
 end
-=======
-  end
->>>>>>> origin/master
