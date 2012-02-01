@@ -1,0 +1,2 @@
+rvm 1.9.3@easystats --install --create
+rvm_project_rvmrc_default=1
