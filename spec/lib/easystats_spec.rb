@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Array do
   describe "#mean" do
+    it {        [].mean.should be_nil }
     it {       [1].mean.should ==   1 }
     it {     [1,2].mean.should == 1.5 }
     it {   [1,2,3].mean.should ==   2 }
@@ -13,6 +14,7 @@ describe Array do
   end
 
   describe "#median" do
+    it {        [].median.should be_nil }
     it {       [1].median.should ==   1 }
     it {     [1,2].median.should == 1.5 }
     it {   [1,2,3].median.should ==   2 }
@@ -22,6 +24,7 @@ describe Array do
   end
 
   describe "#mode" do
+    it {        [].mode.should be_nil }
     it {       [1].mode.should ==   1 }
     it {     [1,2].mode.should be_nil }
     it {   [1,2,3].mode.should be_nil }
@@ -31,6 +34,7 @@ describe Array do
   end
 
   describe "#range" do
+    it {        [].range.should be_nil }
     it {       [1].range.should == 0 }
     it {     [1,2].range.should == 1 }
     it {   [1,2,3].range.should == 2 }
@@ -42,13 +46,15 @@ describe Array do
   describe "#standard_deviation" do
     let(:delta) { 0.00000000000001 }
 
-    it {       [1].standard_deviation.should be_within(delta).of(0) }
+    it {        [].standard_deviation.should be_nil }
+    it {       [1].standard_deviation.should == 0 }
     it {     [1,2].standard_deviation.should be_within(delta).of(0.707106781186548) }
     it {   [1,2,3].standard_deviation.should be_within(delta).of(1) }
     it { [1,2,3,4].standard_deviation.should be_within(delta).of(1.29099444873581) }
   end
 
   describe "#sum" do
+    it {        [].sum.should be_nil }
     it {       [1].sum.should ==  1 }
     it {     [1,2].sum.should ==  3 }
     it {   [1,2,3].sum.should ==  6 }
@@ -58,6 +64,7 @@ describe Array do
   end
 
   describe "#variance" do
+    it {        [].variance.should be_nil }
     it {       [1].variance.should ==     0.0 }
     it {     [1,2].variance.should ==    0.25 }
     it {   [1,2,3].variance.should == 2.0/3.0 }

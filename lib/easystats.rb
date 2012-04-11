@@ -1,19 +1,16 @@
 class Array
   # take in an array of numbers and calculate the mean (average)
   def mean
-    data = self
+    return unless self.any?
 
-    # Check to make sure there are numbers to avoid division by 0
-    if data.count > 0
-      self.sum / data.count.to_f
-    else
-      0
-    end
+    self.sum / self.count.to_f
   end unless Array.instance_methods.include? "mean"
   alias_method :average, :mean unless Array.instance_methods.include? "average"
 
   # take in the array of numbers and calculate the median
   def median
+    return unless self.any?
+
     data = self
 
     halfway = data.count / 2
@@ -36,10 +33,10 @@ class Array
 
   # take in an array of numbers and return the mode
   def mode
-    data = self
+    return unless self.any?
 
     # Sort the array
-    data = data.sort
+    data = self.sort
 
     # create a flag to tell the user if all the numbers only appear once
     no_mode = true
@@ -70,7 +67,7 @@ class Array
     end
 
     if no_mode == true
-      0
+      nil
     else
       data.each do |num|
         if tmp["#{num}"].to_i > most_times
@@ -98,50 +95,39 @@ class Array
 
   # take in an array of numbers and calculate the range
   def range
-    data = self
-    data = data.sort
-    data[data.count-1] - data[0]
+    return unless self.any?
+
+    data = self.sort
+    data[data.count - 1] - data[0]
   end unless Array.instance_methods.include? "range"
 
   # take in an array of numbers and calculate the standard deviation
   def standard_deviation
-    data = self
-    sum_of_deviations_squared = self.sum_of_deviations_squared
+    return unless self.any?
+    return 0 if self.one?
 
-    if data.count > 1
-      Math::sqrt(sum_of_deviations_squared / (data.count-1))
-    else
-      0
-    end
+    Math::sqrt(self.sum_of_deviations_squared / (self.count-1))
   end unless Array.instance_methods.include? "standard_deviation"
 
   # take in an array of numbers and calculate the sum
   def sum
-    data = self
+    return unless self.any?
+
     sum_of_numbers = 0
 
-    # Get the total sum only if there are actually numbers to total
-    if data.count > 0
-      data.each do |num|
-        sum_of_numbers += num
-      end
-    else
-      sum_of_numbers = 0
+    self.each do |num|
+      sum_of_numbers += num
     end
 
     sum_of_numbers
   end unless Array.instance_methods.include? "sum"
 
   def variance
-    data = self
-    average = self.mean
+    return unless self.any?
+
     sum_of_deviations = self.sum_of_deviations_squared
 
-    if data.count > 0
-      sum_of_deviations / data.count.to_f
-    else
-      0
-    end
+    sum_of_deviations / self.count.to_f
   end unless Array.instance_methods.include? "variance"
 
   protected
