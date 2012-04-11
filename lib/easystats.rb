@@ -111,15 +111,7 @@ class Array
 
   # take in an array of numbers and calculate the sum
   def sum
-    return unless self.any?
-
-    sum_of_numbers = 0
-
-    self.each do |num|
-      sum_of_numbers += num
-    end
-
-    sum_of_numbers
+    self.reduce { |total, number| total + number }
   end unless Array.instance_methods.include? "sum"
 
   def variance
