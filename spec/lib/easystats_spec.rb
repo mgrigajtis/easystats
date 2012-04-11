@@ -39,6 +39,15 @@ describe Array do
     it { [1,3,3,4].range.should == 3 }
   end
 
+  describe "#standard_deviation" do
+    let(:delta) { 0.00000000000001 }
+
+    it {       [1].standard_deviation.should be_within(delta).of(0) }
+    it {     [1,2].standard_deviation.should be_within(delta).of(0.707106781186548) }
+    it {   [1,2,3].standard_deviation.should be_within(delta).of(1) }
+    it { [1,2,3,4].standard_deviation.should be_within(delta).of(1.29099444873581) }
+  end
+
   describe "#sum" do
     it {       [1].sum.should ==  1 }
     it {     [1,2].sum.should ==  3 }
@@ -54,15 +63,5 @@ describe Array do
     it {   [1,2,3].variance.should == 2.0/3.0 }
     it { [1,2,3,4].variance.should ==    1.25 }
   end
-
-  describe "#standard_deviation" do
-    let(:delta) { 0.00000000000001 }
-
-    it {       [1].standard_deviation.should be_within(delta).of(0) }
-    it {     [1,2].standard_deviation.should be_within(delta).of(0.707106781186548) }
-    it {   [1,2,3].standard_deviation.should be_within(delta).of(1) }
-    it { [1,2,3,4].standard_deviation.should be_within(delta).of(1.29099444873581) }
-  end
 end
-
 
