@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.name        = "easystats"
   s.version     = Easystats::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Matthew Grigajtis"]
-  s.email       = ["matthew@grigajtis.org"]
+  s.authors     = ["Matthew Grigajtis", "Justin Campbell"]
+  s.email       = ["matthew@grigajtis.org", "justin@justincampbell.me"]
   s.homepage    = "https://github.com/mgrigajtis/easystats"
   s.summary     = %q{Easy to use statistics functions}
   s.description = %q{This gem contains statistics functions that are very easy to use.  Much easier and much more complete than many of the other statistical gems available out there.  If you need a feature added, send me a message on Github!}
