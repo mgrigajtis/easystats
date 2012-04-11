@@ -98,7 +98,7 @@ class Array
     return unless self.any?
 
     data = self.sort
-    data[data.count - 1] - data[0]
+    data.last - data.first
   end unless Array.instance_methods.include? "range"
 
   # take in an array of numbers and calculate the standard deviation
