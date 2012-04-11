@@ -1,4 +1,4 @@
-# Easystats
+# Easystats [![Build Status](https://secure.travis-ci.org/mgrigajtis/easystats.png)](https://secure.travis-ci.org/mgrigajtis/easystats) 
 
 > Created by [Matthew Grigajtis](http://www.matthewgrigajtis.com)
 
