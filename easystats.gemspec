@@ -1,8 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
 require "easystats/version"
-require "complex"
-include Math
 
 Gem::Specification.new do |s|
   s.name        = "easystats"
