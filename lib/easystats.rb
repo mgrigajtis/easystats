@@ -117,9 +117,7 @@ class Array
   def variance
     return unless self.any?
 
-    sum_of_deviations = self.sum_of_deviations_squared
-
-    sum_of_deviations / self.count.to_f
+    self.sum_of_deviations_squared / self.count.to_f
   end unless Array.instance_methods.include? "variance"
 
   protected
