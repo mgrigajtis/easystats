@@ -1,7 +1,7 @@
 class Array
   # take in an array of numbers and calculate the mean (average)
   def mean
-    return unless self.any?
+    return if self.empty?
 
     self.sum / self.count.to_f
   end unless method_defined? :mean
@@ -10,7 +10,7 @@ class Array
 
   # take in the array of numbers and calculate the median
   def median
-    return unless self.any?
+    return if self.empty?
 
     data = self
 
@@ -34,7 +34,7 @@ class Array
 
   # take in an array of numbers and return the mode
   def mode
-    return unless self.any?
+    return if self.empty?
 
     # Sort the array
     data = self.sort
@@ -96,7 +96,7 @@ class Array
 
   # take in an array of numbers and calculate the range
   def range
-    return unless self.any?
+    return if self.empty?
 
     data = self.sort
     data.last - data.first
@@ -104,7 +104,7 @@ class Array
 
   # take in an array of numbers and calculate the standard deviation
   def standard_deviation
-    return unless self.any?
+    return if self.empty?
     return 0 if self.one?
 
     Math::sqrt(self.sum_of_deviations_squared / (self.count-1))
@@ -116,7 +116,7 @@ class Array
   end unless method_defined? :sum
 
   def variance
-    return unless self.any?
+    return if self.empty?
 
     self.sum_of_deviations_squared / self.count.to_f
   end unless method_defined? :variance
