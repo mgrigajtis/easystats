@@ -7,6 +7,7 @@ describe Array do
     it {     [1,2].mean.should == 1.5 }
     it {   [1,2,3].mean.should ==   2 }
     it { [1,2,3,4].mean.should == 2.5 }
+    it {  [-1,0,1].mean.should ==   0 }
   end
 
   describe "#average" do
@@ -21,6 +22,7 @@ describe Array do
     it { [1,2,3,4].median.should == 2.5 }
     it { [1,2,2,4].median.should ==   2 }
     it { [1,3,3,4].median.should ==   3 }
+    it {  [-1,0,1].median.should ==   0 }
   end
 
   describe "#mode" do
@@ -31,6 +33,7 @@ describe Array do
     it { [1,2,3,4].mode.should be_nil }
     it { [1,2,2,4].mode.should ==   2 }
     it { [1,3,3,4].mode.should ==   3 }
+    it {  [-1,0,1].mode.should be_nil }
   end
 
   describe "#range" do
@@ -41,6 +44,7 @@ describe Array do
     it { [1,2,3,4].range.should == 3 }
     it { [1,2,2,4].range.should == 3 }
     it { [1,3,3,4].range.should == 3 }
+    it {  [-1,0,1].range.should == 2 }
   end
 
   describe "#standard_deviation" do
@@ -51,6 +55,7 @@ describe Array do
     it {     [1,2].standard_deviation.should be_within(delta).of(0.707106781186548) }
     it {   [1,2,3].standard_deviation.should be_within(delta).of(1) }
     it { [1,2,3,4].standard_deviation.should be_within(delta).of(1.29099444873581) }
+    it {  [-1,0,1].standard_deviation.should be_within(delta).of(1) }
   end
 
   describe "#sum" do
@@ -61,6 +66,7 @@ describe Array do
     it { [1,2,3,4].sum.should == 10 }
     it { [1,2,2,4].sum.should ==  9 }
     it { [1,3,3,4].sum.should == 11 }
+    it {  [-1,0,1].sum.should ==  0 }
   end
 
   describe "#variance" do
@@ -69,6 +75,7 @@ describe Array do
     it {     [1,2].variance.should ==    0.25 }
     it {   [1,2,3].variance.should == 2.0/3.0 }
     it { [1,2,3,4].variance.should ==    1.25 }
+    it {  [-1,0,1].variance.should == 2.0/3.0 }
   end
 end
 
