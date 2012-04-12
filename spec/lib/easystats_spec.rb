@@ -1,6 +1,90 @@
 require 'spec_helper'
 
 describe Array do
+  DELTA = 0.00000000000001
+
+  build_stats_spec [], {
+    :mean => nil,
+    :median => nil,
+    :mode => nil,
+    :range => nil,
+    :standard_deviation => nil,
+    :sum => nil,
+    :variance => nil
+  }
+
+  build_stats_spec [0], {
+    :mean => 0,
+    :median => 0,
+    :mode => 0,
+    :range => 0,
+    :standard_deviation => 0,
+    :sum => 0,
+    :variance => 0.0
+  }
+
+  build_stats_spec [1], {
+    :mean => 1,
+    :median => 1,
+    :mode => 1,
+    :range => 0,
+    :standard_deviation => 0,
+    :sum => 1,
+    :variance => 0.0
+  }
+
+  build_stats_spec [1,2], {
+    :mean => 1.5,
+    :median => 1.5,
+    :mode => nil,
+    :range => 1,
+    :standard_deviation => 0.707106781186548,
+    :sum => 3,
+    :variance => 0.25
+  }
+
+  build_stats_spec [1,2,3], {
+    :mean => 2,
+    :median => 2,
+    :mode => nil,
+    :range => 2,
+    :standard_deviation => 1,
+    :sum => 6,
+    :variance => 2.0 / 3.0
+  }
+
+  build_stats_spec [1,2,3,4], {
+    :mean => 2.5,
+    :median => 2.5,
+    :mode => nil,
+    :range => 3,
+    :standard_deviation => 1.29099444873581,
+    :sum => 10,
+    :variance => 1.25
+  }
+
+  build_stats_spec (0..100).to_a, {
+    :mean => 50,
+    :median => 50,
+    :mode => nil,
+    :range => 100,
+    :standard_deviation => 29.300170647967224,
+    :sum => 5050,
+    :variance => 850.0
+  }
+
+  build_stats_spec (1..100).to_a, {
+    :mean => 50.5,
+    :median => 50.5,
+    :mode => nil,
+    :range => 99,
+    :standard_deviation => 29.011491975882016,
+    :sum => 5050,
+    :variance => 833.25
+  }
+
+  # TODO: Finish porting specs below to style above
+
   describe "#mean" do
     it {        [].mean.should be_nil }
     it {       [1].mean.should ==   1 }
@@ -8,6 +92,7 @@ describe Array do
     it {   [1,2,3].mean.should ==   2 }
     it { [1,2,3,4].mean.should == 2.5 }
     it {  [-1,0,1].mean.should ==   0 }
+    it { [1.0,2.5].mean.should == 1.75 }
   end
 
   describe "#average" do
@@ -77,5 +162,9 @@ describe Array do
     it { [1,2,3,4].variance.should ==    1.25 }
     it {  [-1,0,1].variance.should == 2.0/3.0 }
   end
+
+  private
+
+
 end
 
