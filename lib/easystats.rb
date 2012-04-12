@@ -4,9 +4,9 @@ class Array
     return unless self.any?
 
     self.sum / self.count.to_f
-  end unless Array.method_defined? :mean
+  end unless method_defined? :mean
 
-  alias_method :average, :mean unless Array.method_defined? :average
+  alias_method :average, :mean unless method_defined? :average
 
   # take in the array of numbers and calculate the median
   def median
@@ -30,7 +30,7 @@ class Array
     end
 
     median
-  end unless Array.method_defined? :median
+  end unless method_defined? :median
 
   # take in an array of numbers and return the mode
   def mode
@@ -92,7 +92,7 @@ class Array
         highest_value
       end
     end
-  end unless Array.method_defined? :mode
+  end unless method_defined? :mode
 
   # take in an array of numbers and calculate the range
   def range
@@ -100,7 +100,7 @@ class Array
 
     data = self.sort
     data.last - data.first
-  end unless Array.method_defined? :range
+  end unless method_defined? :range
 
   # take in an array of numbers and calculate the standard deviation
   def standard_deviation
@@ -108,18 +108,18 @@ class Array
     return 0 if self.one?
 
     Math::sqrt(self.sum_of_deviations_squared / (self.count-1))
-  end unless Array.method_defined? :standard_deviation
+  end unless method_defined? :standard_deviation
 
   # take in an array of numbers and calculate the sum
   def sum
     self.reduce { |total, number| total + number }
-  end unless Array.method_defined? :sum
+  end unless method_defined? :sum
 
   def variance
     return unless self.any?
 
     self.sum_of_deviations_squared / self.count.to_f
-  end unless Array.method_defined? :variance
+  end unless method_defined? :variance
 
   protected
 
