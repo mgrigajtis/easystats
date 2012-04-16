@@ -1,5 +1,9 @@
-require 'simplecov'
-SimpleCov.start
+puts RUBY_DESCRIPTION
+
+if RUBY_VERSION.to_f >= 1.9
+  require 'simplecov'
+  SimpleCov.start
+end
 
 require 'easystats'
 
