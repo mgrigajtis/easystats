@@ -48,7 +48,7 @@ class Array
   end unless method_defined? :standard_deviation
 
   def sum
-    self.reduce { |total, number| total + number }
+    self.reduce :+
   end unless method_defined? :sum
 
   def variance
