@@ -65,6 +65,16 @@ describe Array do
     :variance => 1.25
   }
 
+  build_stats_spec [1,1,2,2], {
+    :mean => 1.5,
+    :median => 1.5,
+    :mode => nil,
+    :range => 1,
+    :standard_deviation => 0.5773502691896257,
+    :sum => 6,
+    :variance => 0.25
+  }
+
   build_stats_spec [1,2,2,4], {
     :mean => 2.25,
     :median => 2,
