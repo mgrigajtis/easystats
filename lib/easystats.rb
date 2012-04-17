@@ -67,20 +67,8 @@ class Array
 
   # this function returns the sum of each squared difference of mean
   def sum_of_deviations_squared
-    data = self
+    mean = self.mean
 
-    deviations = Array.new
-    average = self.mean
-    sum_of_deviations_squared = 0
-
-    data.each do |num|
-      deviations.push((num-average)**2)
-    end
-
-    deviations.each do |num|
-      sum_of_deviations_squared += num
-    end
-
-    sum_of_deviations_squared
+    self.inject(0) { |total, number| total + ((number - mean) ** 2) }
   end
 end
