@@ -65,7 +65,6 @@ describe Array do
     :variance => 1.25
   }
 
-
   build_stats_spec [1,2,2,4], {
     :mean => 2.25,
     :median => 2,
@@ -75,7 +74,6 @@ describe Array do
     :sum => 9,
     :variance => 1.1875
   }
-
 
   build_stats_spec [1,3,3,4], {
     :mean => 2.75,
