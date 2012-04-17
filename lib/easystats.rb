@@ -12,7 +12,7 @@ class Array
   def median
     return if self.empty?
 
-    data = self
+    data = self.map(&:to_f)
 
     halfway = data.count / 2
 
@@ -89,7 +89,7 @@ class Array
       if no_mode == true
         nil
       else
-        highest_value
+        highest_value.to_f
       end
     end
   end unless method_defined? :mode
@@ -98,7 +98,7 @@ class Array
   def range
     return if self.empty?
 
-    data = self.sort
+    data = self.map(&:to_f).sort
     data.last - data.first
   end unless method_defined? :range
 
@@ -112,7 +112,7 @@ class Array
 
   # take in an array of numbers and calculate the sum
   def sum
-    self.reduce { |total, number| total + number }
+    self.reduce { |total, number| total.to_f + number.to_f }
   end unless method_defined? :sum
 
   def variance
@@ -125,7 +125,7 @@ class Array
 
   # this function returns the sum of each squared difference of mean
   def sum_of_deviations_squared
-    data = self
+    data = self.map(&:to_f)
 
     deviations = Array.new
     average = self.mean
