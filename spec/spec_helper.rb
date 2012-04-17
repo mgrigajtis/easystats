@@ -1,6 +1,6 @@
 puts RUBY_DESCRIPTION
 
-if RUBY_VERSION.to_f >= 1.9
+if RUBY_DESCRIPTION.start_with? "ruby 1.9"
   require 'simplecov'
   SimpleCov.start
 end

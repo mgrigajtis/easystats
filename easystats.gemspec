@@ -22,5 +22,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec"
-  s.add_development_dependency "simplecov" if RUBY_VERSION.to_f >= 1.9
+  s.add_development_dependency "simplecov" if RUBY_DESCRIPTION.start_with? "ruby 1.9"
 end
