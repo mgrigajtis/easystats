@@ -26,63 +26,15 @@ class Array
   # take in an array of numbers and return the mode
   def mode
     return if self.empty?
+    return self.first if self.one?
+    return if self == self.uniq
 
-    # Sort the array
-    data = self.sort
+    frequencies = self.reduce(Hash.new(0)) { |k,v| k[v] += 1; k }
+    frequencies = frequencies.sort_by { |k,v| v }
 
-    # create a flag to tell the user if all the numbers only appear once
-    no_mode = true
+    return if frequencies[-1][1] == frequencies[-2][1]
 
-    # The variable that will hold the highest number
-    highest_value = 0
-
-    # The variable that holds the most time the value appears
-    most_times = 0
-
-    # Create a new hash to hold the numbers
-    tmp = Hash.new
-
-    # Populate the hash
-    data.each do |num|
-      if tmp["#{num}"].nil? == false
-        tmp["#{num}"] = tmp["#{num}"].to_i + 1
-      else
-        tmp["#{num}"] = 1
-      end
-    end
-
-    # Check to make sure that there is a mode
-    data.each do |num|
-      if tmp["#{num}"].to_i > 0
-        no_mode = false
-      end
-    end
-
-    if no_mode == true
-      nil
-    else
-      data.each do |num|
-        if tmp["#{num}"].to_i > most_times
-          highest_value = num
-          most_times = tmp["#{num}"]
-        end
-      end
-
-      # now loop through again just to make sure another number doesn't appear an equal number of times
-      data.each do |num|
-        if num != highest_value
-          if tmp["#{num}"].to_i == most_times
-            no_mode = true
-          end
-        end
-      end
-
-      if no_mode == true
-        nil
-      else
-        highest_value
-      end
-    end
+    frequencies.last[0]
   end unless method_defined? :mode
 
   # take in an array of numbers and calculate the range
