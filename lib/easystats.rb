@@ -49,7 +49,7 @@ class Array
     return if self.empty?
     return 0 if self.one?
 
-    Math::sqrt(self.sum_of_deviations_squared / (self.count-1))
+    Math::sqrt self.sum_of_deviations_squared / (self.count - 1)
   end unless method_defined? :standard_deviation
 
   # take in an array of numbers and calculate the sum
