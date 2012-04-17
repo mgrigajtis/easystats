@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Array do
   DELTA = 0.00000000000001
 
+  it { should respond_to :average }
+
   build_stats_spec [], {
     :mean => nil,
     :median => nil,
@@ -63,6 +65,28 @@ describe Array do
     :variance => 1.25
   }
 
+
+  build_stats_spec [1,2,2,4], {
+    :mean => 2.25,
+    :median => 2,
+    :mode => 2,
+    :range => 3,
+    :standard_deviation => 1.2583057392117916,
+    :sum => 9,
+    :variance => 1.1875
+  }
+
+
+  build_stats_spec [1,3,3,4], {
+    :mean => 2.75,
+    :median => 3,
+    :mode => 3,
+    :range => 3,
+    :standard_deviation => 1.2583057392117916,
+    :sum => 11,
+    :variance => 1.1875
+  }
+
   build_stats_spec (0..100).to_a, {
     :mean => 50,
     :median => 50,
@@ -83,88 +107,24 @@ describe Array do
     :variance => 833.25
   }
 
-  # TODO: Finish porting specs below to style above
+  build_stats_spec [-1,0,1], {
+    :mean => 0,
+    :median => 0,
+    :mode => nil,
+    :range => 2,
+    :standard_deviation => 1,
+    :sum => 0,
+    :variance => 0.6666666666666666
+  }
 
-  describe "#mean" do
-    it {        [].mean.should be_nil }
-    it {       [1].mean.should ==   1 }
-    it {     [1,2].mean.should == 1.5 }
-    it {   [1,2,3].mean.should ==   2 }
-    it { [1,2,3,4].mean.should == 2.5 }
-    it {  [-1,0,1].mean.should ==   0 }
-    it { [1.0,2.5].mean.should == 1.75 }
-  end
-
-  describe "#average" do
-    it { [1,2,3,4].average.should == 2.5 }
-  end
-
-  describe "#median" do
-    it {        [].median.should be_nil }
-    it {       [1].median.should ==   1 }
-    it {     [1,2].median.should == 1.5 }
-    it {   [1,2,3].median.should ==   2 }
-    it { [1,2,3,4].median.should == 2.5 }
-    it { [1,2,2,4].median.should ==   2 }
-    it { [1,3,3,4].median.should ==   3 }
-    it {  [-1,0,1].median.should ==   0 }
-  end
-
-  describe "#mode" do
-    it {        [].mode.should be_nil }
-    it {       [1].mode.should ==   1 }
-    it {     [1,2].mode.should be_nil }
-    it {   [1,2,3].mode.should be_nil }
-    it { [1,2,3,4].mode.should be_nil }
-    it { [1,2,2,4].mode.should ==   2 }
-    it { [1,3,3,4].mode.should ==   3 }
-    it {  [-1,0,1].mode.should be_nil }
-  end
-
-  describe "#range" do
-    it {        [].range.should be_nil }
-    it {       [1].range.should == 0 }
-    it {     [1,2].range.should == 1 }
-    it {   [1,2,3].range.should == 2 }
-    it { [1,2,3,4].range.should == 3 }
-    it { [1,2,2,4].range.should == 3 }
-    it { [1,3,3,4].range.should == 3 }
-    it {  [-1,0,1].range.should == 2 }
-  end
-
-  describe "#standard_deviation" do
-    let(:delta) { 0.00000000000001 }
-
-    it {        [].standard_deviation.should be_nil }
-    it {       [1].standard_deviation.should == 0 }
-    it {     [1,2].standard_deviation.should be_within(delta).of(0.707106781186548) }
-    it {   [1,2,3].standard_deviation.should be_within(delta).of(1) }
-    it { [1,2,3,4].standard_deviation.should be_within(delta).of(1.29099444873581) }
-    it {  [-1,0,1].standard_deviation.should be_within(delta).of(1) }
-  end
-
-  describe "#sum" do
-    it {        [].sum.should be_nil }
-    it {       [1].sum.should ==  1 }
-    it {     [1,2].sum.should ==  3 }
-    it {   [1,2,3].sum.should ==  6 }
-    it { [1,2,3,4].sum.should == 10 }
-    it { [1,2,2,4].sum.should ==  9 }
-    it { [1,3,3,4].sum.should == 11 }
-    it {  [-1,0,1].sum.should ==  0 }
-  end
-
-  describe "#variance" do
-    it {        [].variance.should be_nil }
-    it {       [1].variance.should ==     0.0 }
-    it {     [1,2].variance.should ==    0.25 }
-    it {   [1,2,3].variance.should == 2.0/3.0 }
-    it { [1,2,3,4].variance.should ==    1.25 }
-    it {  [-1,0,1].variance.should == 2.0/3.0 }
-  end
-
-  private
-
-
+  build_stats_spec [1,2.5], {
+    :mean => 1.75,
+    :median => 1.75,
+    :mode => nil,
+    :range => 1.5,
+    :standard_deviation => 1.0606601717798212,
+    :sum => 3.5,
+    :variance =>0.5625
+  }
 end
 
