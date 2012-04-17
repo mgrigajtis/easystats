@@ -41,8 +41,7 @@ class Array
   def range
     return if self.empty?
 
-    data = self.sort
-    data.last - data.first
+    self.max - self.min
   end unless method_defined? :range
 
   # take in an array of numbers and calculate the standard deviation
