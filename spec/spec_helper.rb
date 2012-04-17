@@ -10,7 +10,7 @@ require 'easystats'
 def build_stats_spec(array, expectations)
   expectations.each do |method, expectation|
     describe "##{method}" do
-      context "when #{array}" do
+      context "when #{array.inspect}" do
         if expectation && method == :standard_deviation
           it "should be within #{DELTA} of #{expectation.inspect}" do
             array.send(method).should be_within(DELTA).of(expectation)
