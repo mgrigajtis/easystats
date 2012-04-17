@@ -12,24 +12,15 @@ class Array
   def median
     return if self.empty?
 
-    data = self
+    data = self.sort
 
     halfway = data.count / 2
 
-    # Sort the array
-    data = data.sort
-
-    # The median will be different based on the number of numbers in the array
-    # If there is an even number in the array
-    if(data.count % 2) == 0
-      median = (data[halfway] + data[halfway-1]) / 2.0
-
-    # Else, there is an odd number of elements in the array
+    if data.count.even?
+      (data[halfway] + data[halfway - 1]) / 2.0
     else
-      median = data[halfway]
+      data[halfway]
     end
-
-    median
   end unless method_defined? :median
 
   # take in an array of numbers and return the mode
