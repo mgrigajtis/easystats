@@ -29,7 +29,7 @@ class Array
     return self.first if self.one?
     return if self == self.uniq
 
-    frequencies = self.reduce(Hash.new(0)) { |k,v| k[v] += 1; k }
+    frequencies = self.inject(Hash.new(0)) { |k,v| k[v] += 1; k }
     frequencies = frequencies.sort_by { |k,v| v }
 
     return if frequencies[-1][1] == frequencies[-2][1]
