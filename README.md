@@ -1,4 +1,4 @@
-# Easystats [![Build Status](https://secure.travis-ci.org/mgrigajtis/easystats.png)](https://secure.travis-ci.org/mgrigajtis/easystats) 
+# Easystats [![Build Status](https://secure.travis-ci.org/mgrigajtis/easystats.png)](https://secure.travis-ci.org/mgrigajtis/easystats) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/mgrigajtis/easystats) 
 
 > Created by [Matthew Grigajtis](http://www.matthewgrigajtis.com)
 
