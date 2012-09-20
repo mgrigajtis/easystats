@@ -1,4 +1,12 @@
 class Array
+  def probability_distribution
+    return if self.empty?
+    h = Hash.new(0)
+    self.inject(h) { |k,v| k[v] += 1; k} 
+    size = self.length.to_f
+    h.each  { |key, value| h[key] = (value / size) }
+  end unless method_defined? :probability_distribution
+
   def mean
     return if self.empty?
 
