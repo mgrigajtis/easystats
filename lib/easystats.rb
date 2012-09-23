@@ -1,16 +1,16 @@
 class Array
   def mean
-    return if self.empty?
+    return if empty?
 
-    self.sum / self.count.to_f
+    sum / count.to_f
   end unless method_defined? :mean
 
   alias_method :average, :mean unless method_defined? :average
 
   def median
-    return if self.empty?
+    return if empty?
 
-    data = self.sort
+    data = sort
 
     halfway = data.count / 2
 
@@ -22,11 +22,11 @@ class Array
   end unless method_defined? :median
 
   def mode
-    return if self.empty?
-    return self.first if self.one?
-    return if self == self.uniq
+    return if empty?
+    return first if one?
+    return if self == uniq
 
-    frequencies = self.inject(Hash.new(0)) { |k,v| k[v] += 1; k }
+    frequencies = inject(Hash.new(0)) { |k,v| k[v] += 1; k }
     frequencies = frequencies.sort_by { |k,v| v }
 
     return if frequencies[-1][1] == frequencies[-2][1]
@@ -35,36 +35,36 @@ class Array
   end unless method_defined? :mode
 
   def probability_distribution
-    return if self.empty?
+    return if empty?
 
-    total = self.count.to_f
+    total = count.to_f
 
-    self.inject({}) { |result, item|
-      result.update({ item => self.count(item) / total })
+    inject({}) { |result, item|
+      result.update({ item => count(item) / total })
     }
   end unless method_defined? :probability_distribution
 
   def range
-    return if self.empty?
+    return if empty?
 
-    self.max - self.min
+    max - min
   end unless method_defined? :range
 
   def standard_deviation
-    return if self.empty?
-    return 0 if self.one?
+    return if empty?
+    return 0 if one?
 
-    Math::sqrt self.sum_of_deviations_squared / (self.count - 1)
+    Math::sqrt sum_of_deviations_squared / (count - 1)
   end unless method_defined? :standard_deviation
 
   def sum
-    self.reduce :+
+    reduce :+
   end unless method_defined? :sum
 
   def variance
-    return if self.empty?
+    return if empty?
 
-    self.sum_of_deviations_squared / self.count.to_f
+    sum_of_deviations_squared / count.to_f
   end unless method_defined? :variance
 
   protected
@@ -72,6 +72,6 @@ class Array
   def sum_of_deviations_squared
     mean = self.mean
 
-    self.inject(0) { |total, number| total + ((number - mean) ** 2) }
+    inject(0) { |total, number| total + ((number - mean) ** 2) }
   end
 end
