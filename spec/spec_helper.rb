@@ -20,7 +20,7 @@ def build_stats_spec(array, expectations)
           it "should return hash #{expectation.inspect}" do
             # iterating the hash instead of just using == operator so we can be within delta for each element
             h = array.send(method)
-            h.each { |key,value| value.should == be_within(DELTA).of(expectation[key]) }
+            h.each { |key,value| value.should be_within(DELTA).of(expectation[key]) }
           end
         else
           it "should be #{expectation.inspect}" do
