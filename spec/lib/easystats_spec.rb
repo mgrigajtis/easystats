@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Array do
-  DELTA = 0.00000000000001
+  DELTA = 1.0e-14
 
   it { should respond_to :average }
 
