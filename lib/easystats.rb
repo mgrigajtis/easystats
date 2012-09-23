@@ -39,7 +39,7 @@ class Array
 
     total = count.to_f
 
-    inject({}) { |result, item|
+    uniq.inject({}) { |result, item|
       result.update({ item => count(item) / total })
     }
   end unless method_defined? :probability_distribution
