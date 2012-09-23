@@ -1,14 +1,4 @@
 class Array
-  def probability_distribution
-    return if self.empty?
-
-    total = self.count.to_f
-
-    self.inject({}) { |result, item|
-      result.update({ item => self.count(item) / total })
-    }
-  end unless method_defined? :probability_distribution
-
   def mean
     return if self.empty?
 
@@ -43,6 +33,16 @@ class Array
 
     frequencies.last[0]
   end unless method_defined? :mode
+
+  def probability_distribution
+    return if self.empty?
+
+    total = self.count.to_f
+
+    self.inject({}) { |result, item|
+      result.update({ item => self.count(item) / total })
+    }
+  end unless method_defined? :probability_distribution
 
   def range
     return if self.empty?
