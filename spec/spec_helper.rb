@@ -15,12 +15,11 @@ def build_stats_spec(array, expectations)
           it "should be within #{DELTA} of #{expectation.inspect}" do
             array.send(method).should be_within(DELTA).of(expectation)
           end
-
         elsif expectation && method == :probability_distribution
           it "should return hash #{expectation.inspect}" do
-            # iterating the hash instead of just using == operator so we can be within delta for each element
-            h = array.send(method)
-            h.each { |key,value| value.should be_within(DELTA).of(expectation[key]) }
+            array.send(method).each do |key,value|
+              value.should be_within(DELTA).of(expectation[key])
+            end
           end
         else
           it "should be #{expectation.inspect}" do
