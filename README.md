@@ -33,6 +33,7 @@ array = [4, 8, 15, 16, 23, 42, 42]
   standard_deviation
   sum
   variance
+  weighted_moving_average
 ].each do |method|
   puts "#{method}: #{array.send(method.to_sym)}"
 end
@@ -48,4 +49,5 @@ range: 38
 standard_deviation: 15.295501984321435
 sum: 150
 variance: 200.53061224489798
+weighted_moving_average: 30.476190476190474
 ```
