@@ -7,6 +7,20 @@ class Array
 
   alias_method :average, :mean unless method_defined? :average
 
+  def weighted_moving_average
+    return if empty?
+    return first if count == 1
+    weighted_sum = 0
+    sum = 0
+    index = 0
+    each do |element|
+      weighted_sum = weighted_sum + (index * element)
+      sum = sum + index
+      index = index + 1
+    end
+    weighted_sum.to_f / sum
+  end unless method_defined? :weighted_moving_average
+
   def median
     return if empty?
 
