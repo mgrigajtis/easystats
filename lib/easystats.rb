@@ -9,14 +9,14 @@ class Array
 
   def weighted_moving_average
     return if empty?
-    return first if count == 1
+    return first if one?
     weighted_sum = 0
     sum = 0
     index = 0
     each do |element|
       weighted_sum = weighted_sum + (index * element)
-      sum = sum + index
-      index = index + 1
+      sum += index
+      index += 1
     end
     weighted_sum.to_f / sum
   end unless method_defined? :weighted_moving_average
