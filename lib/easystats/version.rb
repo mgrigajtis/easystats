@@ -1,3 +1,3 @@
 module Easystats
-  VERSION = "0.4.0.rc2"
+  VERSION = "0.5.0"
 end
