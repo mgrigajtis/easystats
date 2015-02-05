@@ -1,5 +1,7 @@
 # Easystats [![Build Status](https://secure.travis-ci.org/mgrigajtis/easystats.png)](https://secure.travis-ci.org/mgrigajtis/easystats) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/mgrigajtis/easystats) 
 
+[![Join the chat at https://gitter.im/mgrigajtis/easystats](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mgrigajtis/easystats?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > Created by [Matthew Grigajtis](http://www.matthewgrigajtis.com)
 
 Provides easy to use statistical functions to use on an array 
