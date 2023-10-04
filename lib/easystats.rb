@@ -38,14 +38,14 @@ class Array
   def mode
     return if empty?
     return first if one?
-    return if self == uniq
 
-    frequencies = inject(Hash.new(0)) { |k,v| k[v] += 1; k }
-    frequencies = frequencies.sort_by { |k,v| v }
+    frequencies = each_with_object(Hash.new(0)) { |v, k| k[v] += 1 }
+    mode_value, mode_frequency = frequencies.max_by { |_, freq| freq }
+    
+    # Check if any other value has the same frequency
+    return if frequencies.values.count(mode_frequency) > 1
 
-    return if frequencies[-1][1] == frequencies[-2][1]
-
-    frequencies.last[0]
+    mode_value
   end unless method_defined? :mode
 
   def probability_distribution
